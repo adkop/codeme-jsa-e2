@@ -31,9 +31,7 @@ function objectToHTML(object) {
     }
 
     function htmlAttributes(attributes) {
-        return Object.keys(attributes || []).map(attributeName => {
-            return `${attrMap[attributeName] || attributeName}="${attributes[attributeName]}"`;
-        }).join(" ");
+        return Object.keys(attributes || []).map(attributeName => `${attrMap[attributeName] || attributeName}="${attributes[attributeName]}"`).join(" ");
     }
 
     return htmlObject.map(({
