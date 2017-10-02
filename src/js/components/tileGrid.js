@@ -1,5 +1,5 @@
-import template from "../utils/template";
+import render from "../utils/template/template";
 
-function tileGrid() {
-    return template(`<section class="tile-grid" role="list"></section>`);
+export default function tileGrid() {
+    return render(`<section class="tile-grid" role="list"></section>`);
 }

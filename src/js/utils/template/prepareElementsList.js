@@ -1,6 +1,6 @@
-export default function prepareElementsList(document) {
-    const wrappers = document.body.children;
-    const elements = document.querySelectorAll("[ref]");
+export default function prepareElementsList(fragment) {
+    const wrappers = fragment.children;
+    const elements = fragment.querySelectorAll("[ref]");
 
     return [...elements].reduce((obj, element) => {
         const name = element.getAttribute("ref");
