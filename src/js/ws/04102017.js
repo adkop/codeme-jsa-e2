@@ -3,8 +3,10 @@ const log = (title, ...rest) => {
     console.log("-".repeat(10), ` ${header} `, "-".repeat(10), "\n\n", ...rest, "\n\n");
 };
 
+const logElement = document.getElementById("log");
+
 export function ws_1() {
-    const foo = 120;
+    const foo = 100;
 
     const obj = {
         foo
@@ -80,8 +82,116 @@ export function ws_4() {
         }
     });
 
-    obj.checked = true;
+    checkbox.addEventListener("click", e => console.log(e.target.checked, obj.checked), false);
 }
+
+sessionStorage.getItem("nameSItem")
+localStorage.setItem("nameSItem", JSON.stringify({ a: 1 }));
+
+localStorage.nameSItem = "1";
+
+window.addEventListener("storage", function (e) {
+    if (e.key === "test") {
+        if (e.oldValue !== e.newValue) {
+            logElement.innerHTML = e.newValue;
+        }
+        return;
+    }
+
+    console.log(e.key);
+});
+
+console.log('start!');
+setTimeout(function () {
+    console.log('ping');
+    setTimeout(function () {
+        console.log('pong');
+        setTimeout(function () {
+            console.log('end!');
+        }, 0);
+    }, 0);
+}, 0);
+
+
+let isMomHappy = true;
+
+const willGetNewiPhone = new Promise(
+    function (resolve, reject) {
+        if (isMomHappy) {
+            const iPhone = {
+                type: "X",
+                color: "pink"
+            };
+
+            resolve(iPhone); // fulfill
+        } else {
+            const reason = new Error("Mom is not happy");
+
+            reject(reason);
+        }
+    }
+);
+
+const askMom = function () {
+    willGetNewiPhone
+        .then(function (phone) {
+            console.log(phone);
+            return Promise.resolve(`iPhone ${phone.type}`);
+        })
+        .then(function (fulfilled) {
+            console.log(fulfilled);
+        })
+        .catch(function (error) {
+            console.log(error.message);
+        })
+};
+
+askMom();
+
+
+const xhPromiseTest = new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "/");
+
+    xhr.addEventListener("load", function () {
+        resolve(xhr.response);
+    });
+
+    xhr.addEventListener("error", function () {
+        reject({
+            message: "XHR out"
+        });
+    });
+
+    xhr.send();
+});
+
+xhPromiseTest.then(function (response) {
+    logElement.textContent = response;
+});
+
+// postMessage
+
+window.addEventListener("message", function (e) {
+    console.log(e);
+});
+
+
+const ifr = document.querySelector("iframe");
+
+function popup() {
+    const newWindow = window.open("about:blank", "POPUP");
+
+    newWindow.postMessage({
+        width: 1000,
+        height: 1800
+    }, "*");
+}
+
+setTimeout(popup, 1000);
+
+
 
 export default {
     ws_1,
