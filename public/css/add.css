@@ -1,0 +1,57 @@
+form {
+    width: 350px;
+}
+
+fieldset {
+    margin: 25px 5px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 3px;
+}
+
+fieldset>div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 0.688em;
+    color: #369;
+}
+
+label {
+    font-size: 0.688em;
+    color: #666666;
+}
+
+input[type="text"],
+textarea {
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+    width: 95%;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #369;
+}
+
+textarea {
+    height: 150px;
+}
+
+.buttons {
+    margin-top: -10px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.form__button {
+    position: relative;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    background: #eee;
+    right: 0;
+}

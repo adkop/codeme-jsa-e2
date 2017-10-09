@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        CODE:ME
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/public/css/all.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/add.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div id="app">
+        <form action="#edit" method="post">
+            <fieldset>
+                <legend>Album details</legend>
+                <div>
+                    <label>Artist:</label><br>
+                    <input type="text" name="album.artist" value="">
+                </div>
+                <div>
+                    <label>Album:</label><br>
+                    <input type="text" name="album.author" value="">
+                </div>
+                <div>
+                    <label>Genre:</label><br>
+                    <input type="text" name="album.genre" value="">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Song details</legend>
+                <div>
+                    <label>Song:</label><br>
+                    <input type="text" name="song.genre" value="">
+                </div>
+                <div>
+                    <label>Lyrics:</label><br>
+                    <textarea name="song.lyrics"></textarea>
+                </div>
+            </fieldset>
+            <div class="buttons">
+                <button type="button" class="form__button form__button--right">Add</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

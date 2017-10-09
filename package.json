@@ -6,9 +6,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "watch": "webpack --progress --watch",
+        "serv": "live-server --port=3000 --open=public/",
         "start": "webpack-dev-server --open",
         "build": "webpack",
-        "lint": "eslint src/**/*.js"
+        "lint": "eslint src/**/*.js",
+        "server": "live-server --port=3001 --no-browser --cors"
     },
     "keywords": [],
     "author": "",

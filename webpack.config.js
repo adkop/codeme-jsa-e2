@@ -30,12 +30,14 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: "CODE:ME JavaScript",
+            chunks: ["app"],
             template: "./src/index.ejs"
         }),
         extractCSS
     ],
     output: {
         filename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/"
     }
 };
