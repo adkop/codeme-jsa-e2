@@ -15,7 +15,7 @@
 
 <body>
     <div id="app">
-        <form action="#edit" method="post">
+        <form action="#edit" method="post" ref="form.add">
             <fieldset>
                 <legend>Album details</legend>
                 <div>
@@ -26,20 +26,16 @@
                     <label>Album:</label><br>
                     <input type="text" name="album.author" value="">
                 </div>
-                <div>
-                    <label>Genre:</label><br>
-                    <input type="text" name="album.genre" value="">
-                </div>
             </fieldset>
             <fieldset>
                 <legend>Song details</legend>
                 <div>
                     <label>Song:</label><br>
-                    <input type="text" name="song.genre" value="">
+                    <input type="text" name="song.title" value="">
                 </div>
                 <div>
                     <label>Lyrics:</label><br>
-                    <textarea name="song.lyrics"></textarea>
+                    <textarea name="song.lyric"></textarea>
                 </div>
             </fieldset>
             <div class="buttons">
@@ -47,6 +43,7 @@
             </div>
         </form>
     </div>
+    <script src="../../../dist/add.bundle.js"></script>
 </body>
 
 </html>

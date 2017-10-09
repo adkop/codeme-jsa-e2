@@ -9,30 +9,16 @@ body {
     font-size: 16px;
 }
 
-.sortable[role="list"] {
-    background-color: #ccc;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+
+.panel {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.tile-box {
-    background-color: #eee;
-    width: 200px;
-    height: 250px;
-    min-width: 100px;
-    max-width: 200px;
-    border: 1px solid #999;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-@media (max-width: 480px) {
-    .sortable [role="listitem"] {
-        width: 100%;
-        max-width: 100%;
-    }
+.panel--footer {
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
 }

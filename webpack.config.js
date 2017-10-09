@@ -7,7 +7,9 @@ const extractCSS = new ExtractTextPlugin("styles.css");
 
 module.exports = {
     entry: {
-        app: ["./src/js/index.js", "./src/css/style.css"]
+        app: ["./src/js/index.js", "./src/css/style.css"],
+        add: ["./public/forms/add/index.js"],
+        songs: ["./public/songs/index.js"]
     },
     devtool: "inline-source-map",
     devServer: {
@@ -24,6 +26,9 @@ module.exports = {
             use: {
                 loader: "babel-loader"
             }
+        }, {
+            test: /\.(txt|tpl)$/,
+            use: 'raw-loader'
         }]
     },
     plugins: [
