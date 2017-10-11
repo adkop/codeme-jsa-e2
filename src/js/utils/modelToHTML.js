@@ -1,6 +1,6 @@
 const PATTERN = /\{\{([^:]+?)\}\}/gm;
 
-const p = {
+const pipes = {
     nl2br: function (data) {
         return data.replace(/\n/gm, "<br>");
     }
@@ -15,7 +15,7 @@ function modelToHTML(html, model) {
         const paramName = 1 < splitStrArray.length ? splitStrArray[0] : $1;
 
         const dataResult = data[paramName];
-        const output = p[splitStrArray[1]] ? p[splitStrArray[1]](dataResult) : dataResult;
+        const output = pipes[splitStrArray[1]] ? pipes[splitStrArray[1]](dataResult) : dataResult;
 
         return output || $0
     });
