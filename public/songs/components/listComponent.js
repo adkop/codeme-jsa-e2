@@ -1,6 +1,8 @@
 import template from "../../../src/js/utils/template";
 
 import html from "../tpl/list.tpl";
+
+import sortable from "../../../src/js/sortable";
 import listItemComponent from "./listItemComponent";
 
 function fetchData() {
@@ -13,6 +15,8 @@ function listComponent() {
     fetchData().then(data => {
         data.map(model => listElement.insertAdjacentElement("beforeEnd", listItemComponent(model)));
     });
+
+    sortable(listElement);
     return listElement;
 }
 
