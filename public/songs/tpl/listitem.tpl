@@ -1,4 +1,4 @@
-<article role="listitem" class="tile-box list-item" ref="song.box">
+<article id="songs-listitem-{{id}}" role="listitem" class="tile-box list-item" ref="song.box">
     <div class="list-item__inner-box">
         <header>
             <h3 class="list-item__title">{{title}}</h3>

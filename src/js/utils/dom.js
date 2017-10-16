@@ -13,7 +13,7 @@ export function off(element, types, callback) {
 function getStyle(node, property) {
     const style = document.defaultView.getComputedStyle(node, '');
 
-    return property ? value[style] : style;
+    return property ? style[property] : style;
 }
 
 function changeStyle(node, ...sources) {

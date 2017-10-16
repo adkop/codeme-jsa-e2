@@ -1,4 +1,4 @@
-import {css, on, off} from "./utils/dom";
+import { css, on, off } from "./utils/dom";
 
 function sortable(listElement) {
     // [...listElement.children].map();
@@ -12,10 +12,10 @@ function sortable(listElement) {
         }
 
         boxElement.setAttribute("draggable", true);
-
-        on(boxElement, "dragstart", onDragStart);
-        on(boxElement, "drag", onDrag);
-        on(boxElement, "dragend", onDragEnd);
+        on(document, "mousemove", onMouseMove);
+        /*  on(boxElement, "dragstart", onDragStart);
+         on(boxElement, "drag", onDrag);
+         on(boxElement, "dragend", onDragEnd); */
     });
 
     on(listElement, "dragover dragenter", function (e) { e.preventDefault(); });
@@ -24,6 +24,7 @@ function sortable(listElement) {
     on(listElement, "mouseup", function (e) {
         const boxElement = e.target.closest("[role=listitem]");
 
+        off(document, "mousemove", onMouseMove);
         off(boxElement, "drag", onDrag);
         off(boxElement, "dragstart", onDragStart);
 
@@ -37,7 +38,7 @@ function sortable(listElement) {
         return item;
     });
 
-    function onDragStart({dataTransfer}) {
+    function onDragStart({ dataTransfer }) {
         // e.dataTransfer.setDragImage(this, 0, 0);
         dataTransfer.effectAllowed = "move";
         dataTransfer.dropEffect = "move";
@@ -45,6 +46,10 @@ function sortable(listElement) {
 
         this.setAttribute("aria-grabbed", "true");
         this.classList.add("grabbed");
+    }
+
+    function onMouseMove(e) {
+        console.log(e.target);
     }
 
     function onDrag(e) {
@@ -65,9 +70,11 @@ function sortable(listElement) {
     function onDragEnter(e) {
         e.stopPropagation();
     }
+
     function onDragLeave(e) {
         e.stopPropagation();
     }
+
     function onDragOver(e) {
         e.preventDefault();
     }

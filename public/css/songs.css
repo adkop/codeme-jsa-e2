@@ -61,12 +61,12 @@
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-
     -khtml-user-drag: element;
     -webkit-user-drag: element;
 }
 
 .tile-box.grabbed {
+    position: absolute;
     opacity: 0.3;
 }
 
