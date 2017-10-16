@@ -14,9 +14,10 @@ function listComponent() {
 
     fetchData().then(data => {
         data.map(model => listElement.insertAdjacentElement("beforeEnd", listItemComponent(model)));
+
+        sortable(listElement);
     });
 
-    sortable(listElement);
     return listElement;
 }
 
