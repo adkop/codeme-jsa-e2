@@ -51,7 +51,7 @@
     padding: 0 5px;
     height: 290px;
     overflow-y: auto;
-    text-align: center;
+    text-align: justify;
     font-size: 0.688em;
     color: #333;
 }
@@ -61,9 +61,9 @@
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    
+
     -khtml-user-drag: element;
-    -webkit-user-drag: element;   
+    -webkit-user-drag: element;
 }
 
 .tile-box.grabbed {
