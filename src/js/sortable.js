@@ -17,10 +17,12 @@ function sortable(listElement) {
     // "dragover dragenter dragleave"
     on(listElement, "mousedown", function (e) {
         const boxElement = e.target.closest("[role=listitem]");
-        console.log(boxElement);
+ 
         if (!boxElement) {
             return false;
         }
+        
+        boxElement.setAttribute("draggable", true);
 
         on(boxElement, "dragstart", onDragStart);
         on(boxElement, "drag", onDrag);
@@ -39,6 +41,8 @@ function sortable(listElement) {
         off(boxElement, "dragstart", onDragStart);
 
         off(boxElement, "drag", onDrag);
+        
+        boxElement.removeAttribute("draggable");
     });
 
     function onDragStart(e) {
