@@ -11,7 +11,6 @@ function modelToHTML(html, model) {
     const data = Object(model);
     return html.replace(PATTERN, ($0, $1) => {
         const splitStrArray = $1.split("|");
-        console.log(splitStrArray);
         const paramName = 1 < splitStrArray.length ? splitStrArray[0] : $1;
 
         const dataResult = data[paramName];
