@@ -14,8 +14,8 @@ function draggable(element, opt) {
     element.addEventListener("mousedown", onDragStart, false);
 
     const elementFromPoint = (function () {
-        const listElement = element.parentElementNode;
-        const listItems = [...listElement.children];
+        const listElement = element.closest("[role=list]");
+        const listItems = listElement && [...listElement.children];
         return function (x, y) {
             let output = null;
             listItem.some(item => {

@@ -67,7 +67,7 @@
 
 .tile-box.grabbed {
     position: absolute;
-    opacity: 0.3;
+    opacity: 0.8;
 }
 
 @media (max-width: 480px) {
