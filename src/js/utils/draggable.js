@@ -15,25 +15,24 @@ function draggable(element, opt) {
 
     element.addEventListener("mousedown", onDragStart, false);
 
-    const elementFromPoint = (function () {
-        const listElement = element.closest("[role=list]");
+    const elementFromPoint = function (x, y) {
+        const listElement = placeholder.closest("[role=list]");
         const listItems = listElement && [...listElement.children];
-        return function (x, y) {
-            let output = null;
-            listItem.some(item => {
-                const rect = item.getBoundingClientRect();
-
+        let output = null;
+        listItems.some(item => {
+            const rect = item.getBoundingClientRect();
+            if (item !== placeholder) {
                 if ((rect.left < x && x < rect.right) && rect.top < y && y < rect.bottom) {
                     output = item;
                     return true;
                 }
+            }
 
-                return false;
-            });
+            return false;
+        });
 
-            return output;
-        }
-    }());
+        return output;
+    };
 
 
     function onDragStart(e) {
@@ -60,6 +59,8 @@ function draggable(element, opt) {
 
         element.insertAdjacentElement("beforeBegin", placeholder);
 
+        document.body.appendChild(element);
+
         document.addEventListener("mousemove", onDrag, false);
 
         document.addEventListener("mouseup", onDragEnd, false);
@@ -69,13 +70,16 @@ function draggable(element, opt) {
         Object.assign(element.style, {
             transform: `translate(${e.pageX - initialPageX}px, ${e.pageY - initialPageY}px)`
         });
+
+        console.log(elementFromPoint(e.pageX, e.pageY))
     }
 
     function onDragEnd(e) {
         document.removeEventListener("mousemove", onDrag);
         element.setAttribute("aria-grabbed", "false");
         element.classList.remove("grabbed");
-        placeholder.remove();
+        element.style.transform = "";
+        placeholder.parentNode.replaceChild(element, placeholder);
     }
 }
 
