@@ -25,8 +25,8 @@ body::after {
 
 .wrapper {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 250px;
+    height: 250px;
     border: 2px dotted #000;
     top: 50%;
     left: 50%;
@@ -38,6 +38,14 @@ body::after {
     height: 100%;
     border: 2px solid red;
     margin: -2px;
+    background-color: rgba(200, 200, 200, 0.8)
 }
 
-.test {}
+.test {
+    transition: width 1s, height 2s;
+}
+
+.test.hide {
+    width: 0;
+    height: 0;
+}

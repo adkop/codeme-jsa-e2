@@ -7,7 +7,9 @@ function draggable(element, opt) {
     let initialLeft,
         initialTop,
         pointTop,
-        pointLeft;
+        pointLeft,
+        initialPageX,
+        initialPageY;
 
     const placeholder = element.cloneNode();
 
@@ -39,6 +41,8 @@ function draggable(element, opt) {
 
         pointLeft = rect.width / 2;
         pointTop = rect.height / 2;
+        initialPageX = e.pageX;
+        initialPageY = e.pageY;
         initialLeft = options.centerToCursor ?
             e.pageX - pointLeft :
             rect.left;
@@ -63,8 +67,7 @@ function draggable(element, opt) {
 
     function onDrag(e) {
         Object.assign(element.style, {
-            top: e.pageY - pointTop + "px",
-            left: e.pageX - pointLeft + "px"
+            transform: `translate(${e.pageX - initialPageX}px, ${e.pageY - initialPageY}px)`
         });
     }
 
